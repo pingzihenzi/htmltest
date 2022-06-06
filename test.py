@@ -1,1 +1,1 @@
-print("this is my first lesson in learning Pythonb")
+print("this is my first lesson in learning Python")
