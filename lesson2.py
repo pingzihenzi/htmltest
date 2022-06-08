@@ -22,8 +22,8 @@ from sys import argv,path
 通常，对于大型项目程序而言，执行程序的一个必要的步骤是正确处理命令行参数，这些命令行参数是提供给包含某参数化信息的程序或脚本的参数。
 介绍三种常见的获取和解析命令行参数的方法
 1、sys.argv
-2、getopt，需要使用script目录下的script_2文件
-3、argparse
+2、getopt需要使用script目录下的script_1文件
+3、argparse需要使用script目录下的script_2文件
 '''
 
 print("正在运行的脚本名称：'{}'".format(sys.argv[0]))
