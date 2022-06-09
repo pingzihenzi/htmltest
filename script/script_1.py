@@ -9,8 +9,9 @@ hi:o:的解释为，h后面不带参数，i和o后面需要带参数
 def main(argv):
     input_file = ""
     output_file = ""
+    temp_var = ""
     try:
-        opts,args = getopt.getopt(argv[1:],"hi:o:",["help","input_file=","output_file="])
+        opts,args = getopt.getopt(argv[1:],"hci:o:",["help","input_file=","output_file="])
         for opt,arg in opts:
             if opt in ("-h","--help"):
                 print('script_2.py -i <input_file> -o <output_file>')
@@ -20,8 +21,12 @@ def main(argv):
                 input_file = arg
             elif opt in ("-o","--output_file"):
                 output_file = arg
+            elif opt in ("-c"):
+                temp_var = arg
         print('输入文件为：',input_file)
         print('输出文件为：',output_file)
+        print('输出的临时变量为：',temp_var)
+        print(args)
         for i in range(0,len(args)):
             print('不含"-"或"--"的参数 %s 为：%s' %(i + 1,args[i]))
         # print(args[i])
