@@ -10,13 +10,16 @@ argsparse会将传递的参数默认为字符串，可以通过加上参数type=
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-echo",help ="echo the argument you input")
-parser.add_argument("-square",type=int,help="display a square of a given number")
+parser.add_argument("-s","-square",type=int,help="display a square of a given number")
 parser.add_argument("-v","--verbose",action="store_true",help="increase output verbosity")
 args = parser.parse_args()
 
 if args.verbose:
     print("verbosity turned on")
-print("Argument you inputed is:",args.echo)
-print("Square number is:",args.square**2)
+if args.s:
+    print("Argument you inputed is:",str(args.s))
+    print("Square number is:",str(args.s**2))
+else:
+    print("You did not input any number with -s")
 
 
