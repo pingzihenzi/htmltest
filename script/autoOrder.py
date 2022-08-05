@@ -28,5 +28,9 @@ for orderinfo in templist:
                asset = orderinfo['gid']
                downlist.append(asset)
                
-
+toordergoods_res = {
+    "code": 4003,
+    "msg": "此场竞拍未开始！",
+    "data": ""
+}
 

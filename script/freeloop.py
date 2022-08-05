@@ -68,19 +68,41 @@ def get_ordered_list_down(querybody):
     return downlist
 
 
-
+def to_order_goods(gid):
+    pass
 
 
 if __name__ == '__main__':
+    # 我的信息
     me_sign = "bd7710aeaa934978552dc04928d824f4"
     me_login = {
         "mobile": "13776675187","password": "huangC123","token": "","sign": me_sign,"timestamp": "1659514505"
     }
     token_me = get_token(me_login)
+    print(token_me)
     me_query = {
         "page":1,"type":1,"token":token_me,"sign":me_sign,"timestamp":"1659514505"
     }
+    # 李俊的信息
+    li_sign = "42a0d7c88670b5b67ca771414c37ac51"
+    li_login = {
+        "mobile": "18051024118","password": "1234qwer","token": "","sign": li_sign,"timestamp": "1659662236"
+    }
+    token_li = get_token(li_login)
+    li_query = {
+        "page":1,"type":1,"token":token_li,"sign":li_sign,"timestamp":"1659662236"
+    }
+    # 获取我的订单信息
     orderlist_me_up = get_ordered_list_up(me_query)
+    print("黄诚的上午订单gid：")
     print(orderlist_me_up)
     orderlist_me_down = get_ordered_list_down(me_query)
+    print("黄诚的下午订单gid：")
     print(orderlist_me_down)
+
+    orderlist_li_up = get_ordered_list_up(li_query)
+    print("李俊的上午订单gid：")
+    print(orderlist_li_up)
+    orderlist_li_down = get_ordered_list_down(li_query)
+    print("李俊的下午订单gid：")
+    print(orderlist_li_down)
