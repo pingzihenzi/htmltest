@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>youtube视频检查工具</title>
+
+
+    <head>
+
+        <style>
+            body {
+                font-family: arial;
+                font-size: 18px
+            }
+
+            #check {
+                border: 2px solid silver;
+                border-radius: 10px;
+                box-shadow: 5px 5px 5px silver;
+            }
+
+            body {
+                -webkit-animation: fadein 2s;
+                /* Safari, Chrome and Opera > 12.1 */
+                -moz-animation: fadein 2s;
+                /* Firefox < 16 */
+                -ms-animation: fadein 2s;
+                /* Internet Explorer */
+                -o-animation: fadein 2s;
+                /* Opera < 12.1 */
+                animation: fadein 2s;
+            }
+
+
+            @keyframes fadein {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
+
+            /* Firefox < 16 */
+            @-moz-keyframes fadein {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
+
+            /* Safari, Chrome and Opera > 12.1 */
+            @-webkit-keyframes fadein {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
+
+            /* Internet Explorer */
+            @-ms-keyframes fadein {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
+
+            /* Opera < 12.1 */
+            @-o-keyframes fadein {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
+
+            html {
+                overflow: hidden;
+                position: fixed;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+            }
+
+            body {
+                position: absolute;
+                padding: 0;
+                margin: 0;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+        </style>
+
+        <script>
+            window.addEventListener('load', function () { document.getElementById('check').contentWindow.location = 'about:blank' }, false); 
+        </script>
+
+        <script>
+            function height_iframe() {
+                document.getElementById('check').style.width = '320px';
+                document.getElementById('check').style.height = '200px';
+                if (document.getElementById('check').clientHeight > document.getElementById('check').clientWidth) { document.getElementById('check').style.height = document.getElementById('check').clientWidth - 10 + 'px' }
+            }
+            window.addEventListener('load', function () { height_iframe() }, false);
+            window.addEventListener('resize', function () { height_iframe() }, false);
+
+
+        </script>
+    </head>
+
+<body>
+    <h2 style="text-align: center; margin-top: 45px; margin-bottom: 35px; line-height: 35px">youtube视频嵌入检查工具</h2>
+    <div style="margin-left: 10%; margin-right: 10%; margin-bottom: 10px; line-height: 30px">
+        <p>输入youtube视频ID，点击check检查是否可以嵌入。</p>
+        <p>请确保你输入的id是标准的11位id。</p>
+        <p>你可以输入这个正常的id，看一下效果：S_WAhJfG8YM</p>
+        <p>也可以输入这个不正常的，看一下效果：3tMwW1cwF5g</p>
+        <p>还有这种视频的owner不允许在其他网页嵌入的，看一下效果：-9Txw3ttI3U</p>
+    </div>
+    <div style="position:relative; left: 50%; transform: translateX(-50%); text-align: center">
+        <i>预览区域</i>
+        <div style="height: 10px">&nbsp;</div>
+        <iframe id="check" src="about:blank"></iframe><br>
+        <div style="width: 100%; text-align: center; margin-top: 15px">
+            <div id="yt_id" contenteditable
+                style="width: auto; min-width: 100px; max-width: calc(100% - 50px); height: auto; min-height: 21px; border: 1px solid black; display: inline-block; vertical-align: middle; font-family: arial; font-size: 18px; padding: 10px; background: #eeeeee; border-radius: 5px"
+                onclick="this.spellcheck = false; this.focus(); this.blur(); this.focus(); ">请输入youtube视频ID
+                例如:3tMwW1cwF5g, 点击检查</div>
+        </div>
+
+        <div style="width: 100%; text-align: center; line-height: 30px; margin-top: 15px">
+            <a style="cursor: pointer; background: black; color: white; padding: 5px"
+                onclick="document.getElementById('check').contentWindow.location='https://www.youtube-nocookie.com/embed/'+document.getElementById('yt_id').innerHTML+'?autoplay=1'; if(document.getElementById('yt_id').innerHTML.length!=11){alert('你不要随便输，输的不对你就输了.'); document.getElementById('check').contentWindow.location='about:blank'; document.getElementById('yt_id').innerHTML='<span style=\'color: red\'>重新输吧。。先点清空</span>'}">检查</a>&nbsp;&nbsp;
+
+            <a style="cursor: pointer; background: black; color: white; padding: 5px"
+                onclick="document.getElementById('yt_id').innerHTML=''">清空</a>&nbsp;&nbsp;
+
+            <a style="cursor: pointer; background: black; color: white; padding: 5px"
+                onclick="document.getElementById('yt_id').innerHTML=''; document.getElementById('check').contentWindow.location='about:blank'">重置</a>
+        </div>
+    </div>
+    <div style="margin-left: 10%; margin-right: 10%; margin-bottom: 10px; line-height: 30px; margin-top: 40px">
+        如何获取youtube视频id?<br>
+        <li>
+            直接看地址栏中url中的最后11位<br>
+        </li>
+        <li>
+            你可以在youtube视频播放区域，点击右键：复制视频网址,https://youtu.be/-7jjo8UICjQ<br>
+        </li>
+        <li>
+            你可以在youtube视频播放区域，点击右键：复制嵌入代码,其中的src<br>
+        </li>
+        <li>
+            你可以在youtube视频播放区域，点击右键：复制调试信息(其中的docid字段)<br>
+        </li>
+    </div>
+    <div style="margin-left: 10%; margin-right: 10%; margin-bottom: 10px; line-height: 30px; margin-top: 40px">
+        抄的，所以使用愉快也要抄<br>
+    </div>
+    <br>&nbsp;
+</body>
+
+</html>
